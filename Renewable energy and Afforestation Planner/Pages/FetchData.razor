@@ -1,0 +1,193 @@
+﻿@page "/fetchdata"
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+<main class="login-form">
+   
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card" >
+                    <div class="card-header"style="background-color: #2e2e38"> <a style=" font-family: Georgia, serif; font-size: 20px; color: white; text-align:center">Area available at company site</a></div>
+                    <div class="card-body">
+                        
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Roof Top Area</label>
+                                <div class="col-md-6">
+                                    <input @bind=@rooftoparea id="rooftoparea" class="form-control" name="rooftoparea"  type="text" required autofocus>                                     
+                                </div><h5>m2</h5>   
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Open Space Area</label>
+                                <div class="col-md-6">
+                                    <input @bind=@openspacearea id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>m2</h5>   
+                            </div>
+
+                           
+                    </div>
+                   <div class="card" >
+                    <div class="card-header"style="background-color: #2e2e38"> <a style=" font-family: Georgia, serif; font-size: 20px; color: white; text-align:center">Additional area</a></div>
+                    <div class="card-body">
+                        
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Area Purchased</label>
+                                <div class="col-md-6">
+                                    <input @bind=@areapurchaced id="areapurchaced" class="form-control" name="areapurchaced"  type="text" required autofocus>                                        
+                                </div><h5>m2</h5> 
+                            </div>
+                           
+                    </div>
+                    </div>
+
+                      <div class="card" >
+                    <div class="card-header"style="background-color: #2e2e38"> <a style=" font-family: Georgia, serif; font-size: 20px; color: white; text-align:center">Site details</a></div>
+                    <div class="card-body">
+                        
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Cost Of Electricity </label>
+                                <div class="col-md-6">
+                                    <input @bind=@costofelectricty id="costofelectricty" class="form-control" name="costofelectricty"  type="text" required autofocus>                                     
+                                </div><h5>Rs/KW</h5>  
+                                <br/> <br/><h6>If you do not have the break please only enter total emissions</h6> <br/>
+                            </div>
+                             <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Scope 1 Emissions </label>
+                                <div class="col-md-6">
+                                    <input @bind=@scope1emmision id="scope1emmision" class="form-control" name="scope1emmision"  type="text" required autofocus>                                     
+                                </div><h5>TonCO2e</h5>   
+                            </div> 
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Scope 2 Emissions </label>
+                                <div class="col-md-6">
+                                    <input @bind=@scope2emmision id="scope2emmision" class="form-control" name="scope2emmision"  type="text" required autofocus>                                     
+                                </div><h5>TonCO2e</h5>   
+                            </div> 
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Scope 3 Emissions </label>
+                                <div class="col-md-6">
+                                    <input @bind=@scope3emmision id="scope3emmision" class="form-control" name="scope3emmision"  type="text" required autofocus>                                     
+                                </div><h5>TonCO2e</h5>   
+                            </div>
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right"> Total Emissions </label>
+                                <div class="col-md-6">
+                                    <input @bind=@Totalemmision id="scope3emmision" class="form-control" name="scope3emmision"  type="text" required autofocus>                                     
+                                </div><h5>TonCO2e</h5>   
+                            </div>
+
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" @onclick="submit" class="btn btn-primary">
+                                Calculate
+                                </button>
+                               
+                            </div>
+                           
+                    </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+   
+</main>
+@code {
+    public static string rooftoparea { get; set; }//e4
+    public static string openspacearea { get; set; }//e5
+    public static string areapurchaced { get; set; }//e8
+    public static string costofelectricty { get; set; }//e11
+    public static string scope1emmision { get; set; }//e13
+    public static string scope2emmision { get; set; }//e14
+    public static string scope3emmision { get; set; }//e15
+    public static string Totalemmision { get; set; }//e16
+
+    public static double SolarRooftoppotential { get; set; }//d4
+    public static double CostofSolarRooftopCAPEX { get; set; }//d5
+    public static double SavingsduetoCAPEXinvsetmentinsolarplant { get; set; }//d6
+    public static double SavingsduetoOPEXinsolarplant { get; set; }//d7
+
+    public static double SolarRooftoppotential2 { get; set; }//d10
+    public static double CostofSolarRooftopCAPEX2 { get; set; }//d11
+    public static double SavingsduetoCAPEXinvsetmentinsolarplant2 { get; set; }//d12
+    public static double SavingsduetoOPEXinsolarplant2 { get; set; }//d13
+
+    public static double SolarRooftoppotential3 { get; set; }//d16
+    public static double CostofSolarRooftopCAPEX3 { get; set; }//d17
+    public static double SavingsduetoCAPEXinvsetmentinsolarplant3 { get; set; }//d18
+    public static double SavingsduetoOPEXinsolarplant3 { get; set; }//d19
+
+    public static double AdditionalCapacityrequired { get; set; }//d22
+    public static double CostofoffsiteSolarsystem  { get; set; }//d23
+    public static double SavingsduetoCAPEXinvsetmentinsolarplant4 { get; set; }//d24
+    public static double SavingsduetoOPEXmodelsolarplant { get; set; }//d25
+    public static double Numberofplants { get; set; }//d28
+    public static double ArearequiredforMiyawakkiforestry { get; set; }//d29
+    public static double ArearequiredforConventionalforestry { get; set; }//d30
+    public static double Costofplantation  { get; set; }//d31
+    void submit()
+    {
+        if (rooftoparea == null)
+        {
+            rooftoparea = "0";
+        }
+        if (openspacearea == null)
+        {
+            openspacearea = "0";
+        }
+        if (areapurchaced == null)
+        {
+            areapurchaced = "0";
+        } 
+        if (costofelectricty == null)
+        {
+            costofelectricty = "7.5";
+        }
+
+
+
+        NavigationManager.NavigateTo("/counter");
+        SolarRooftoppotential=((Convert.ToDouble(rooftoparea)/10)*1*0.19*365*0.9*24)/ 365;
+        CostofSolarRooftopCAPEX=Convert.ToDouble( rooftoparea)/ 10 * 47000;
+        SavingsduetoCAPEXinvsetmentinsolarplant = ((Convert.ToDouble(SolarRooftoppotential) * Convert.ToDouble(costofelectricty) - (Convert.ToDouble(SolarRooftoppotential) * 4))) * 365;
+        SavingsduetoOPEXinsolarplant = ((Convert.ToDouble(SolarRooftoppotential) * Convert.ToDouble(costofelectricty)) - (Convert.ToDouble(SolarRooftoppotential) * 6)) * 365;
+
+        SolarRooftoppotential2=((Convert.ToDouble( openspacearea)/10)*1*0.19*365*0.9*24)/ 365;
+        CostofSolarRooftopCAPEX2=Convert.ToDouble(openspacearea)/ 10 * 47000;
+        SavingsduetoCAPEXinvsetmentinsolarplant2 = ((Convert.ToDouble(SolarRooftoppotential2) * Convert.ToDouble(costofelectricty)) - (Convert.ToDouble(SolarRooftoppotential2) * 4)) * 365;
+        SavingsduetoOPEXinsolarplant2 = ((Convert.ToDouble(SolarRooftoppotential2) * Convert.ToDouble(costofelectricty)) - (Convert.ToDouble(SolarRooftoppotential2) * 6)) * 365;
+
+        SolarRooftoppotential3=((Convert.ToDouble(areapurchaced)/10)*1*0.19*365*0.9*24)/ 365;
+        CostofSolarRooftopCAPEX3=((Convert.ToDouble(areapurchaced)/10)*1*0.19*365*0.9*24)/ 365;
+        SavingsduetoCAPEXinvsetmentinsolarplant3 = ((Convert.ToDouble(SolarRooftoppotential3) * Convert.ToDouble(costofelectricty)) - (Convert.ToDouble(SolarRooftoppotential3) * 4)) * 365;
+        SavingsduetoOPEXinsolarplant3 =((Convert.ToDouble(SolarRooftoppotential3)*Convert.ToDouble(costofelectricty))-(Convert.ToDouble(SolarRooftoppotential3)*6))*365;
+        if (scope2emmision == null)
+        {
+            AdditionalCapacityrequired = (Convert.ToDouble(Totalemmision) / 0.726) - (Convert.ToDouble(SolarRooftoppotential) + Convert.ToDouble(SolarRooftoppotential2) + Convert.ToDouble(SolarRooftoppotential3));
+        }else
+        {
+            AdditionalCapacityrequired = (Convert.ToDouble(scope2emmision) / 0.726) - (Convert.ToDouble(SolarRooftoppotential) + Convert.ToDouble(SolarRooftoppotential2) + Convert.ToDouble(SolarRooftoppotential3));
+        }
+        CostofoffsiteSolarsystem = Convert.ToDouble(AdditionalCapacityrequired) / 1000 * 4;
+        SavingsduetoCAPEXinvsetmentinsolarplant4=((Convert.ToDouble(AdditionalCapacityrequired)*Convert.ToDouble(costofelectricty))-(Convert.ToDouble(AdditionalCapacityrequired)*3.5))*365;
+        SavingsduetoOPEXmodelsolarplant = ((Convert.ToDouble(AdditionalCapacityrequired) * Convert.ToDouble(costofelectricty)) - (Convert.ToDouble(AdditionalCapacityrequired) * 4.5)) * 365;
+        if (scope3emmision == null && scope1emmision== null)
+        {
+             Numberofplants=(Convert.ToDouble(Totalemmision))*1000 / 20;
+        }
+        else
+        {
+             Numberofplants=(Convert.ToDouble(scope3emmision)+Convert.ToDouble(scope1emmision))*1000 / 20;
+        }
+       
+        ArearequiredforMiyawakkiforestry = Numberofplants / 12000;
+        ArearequiredforConventionalforestry = Numberofplants / 3000;
+        Costofplantation = Numberofplants * 400;
+    }
+
+}

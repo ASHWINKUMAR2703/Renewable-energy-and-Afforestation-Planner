@@ -1,0 +1,221 @@
+﻿@page "/counter"
+
+<main class="login-form">
+   
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card" >
+                    <div class="card-header"style="background-color: #2e2e38"> <a style=" font-family: Georgia, serif; font-size: 20px; color: white; text-align:center">Solar Rooftop</a></div>
+                    <div class="card-body">
+                        
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Solar Rooftop Potential</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@srtp id="rooftoparea" class="form-control" name="rooftoparea"  type="text" required autofocus>                                     
+                                </div><h5>KWh</h5>   
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Cost of Solar Rooftop CAPEX</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@cosrtc id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>Rs</h5>   
+                            </div>
+
+                               <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Savings due to CAPEX invsetment in solar plant</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@sciip id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>Rs/annum</h5>   
+                            </div>
+
+                               <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Savings due to OPEX in solar plant</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@sdtoip id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>Rs/annum</h5>   
+                            </div>
+
+                           
+                    </div>
+                   <div class="card" >
+                    <div class="card-header"style="background-color: #2e2e38"> <a style=" font-family: Georgia, serif; font-size: 20px; color: white; text-align:center">Solar installation in open area</a></div>
+                    <div class="card-body">
+                        
+                           <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Solar Rooftop Potential</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@srtp2 id="rooftoparea" class="form-control" name="rooftoparea"  type="text" required autofocus>                                     
+                                </div><h5>KWh</h5>   
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Cost of Solar Rooftop CAPEX</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@cosrtc2 id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>Rs</h5>   
+                            </div>
+
+                               <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Savings due to CAPEX invsetment in solar plant</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@sciip2 id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>Rs/annum</h5>   
+                            </div>
+
+                               <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Savings due to OPEX in solar plant</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@sdtoip2 id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>Rs/annum</h5>   
+                            </div>
+                           
+                    </div>
+                    </div>
+
+                      <div class="card" >
+                    <div class="card-header"style="background-color: #2e2e38"> <a style=" font-family: Georgia, serif; font-size: 20px; color: white; text-align:center">Additional area</a></div>
+                    <div class="card-body">
+                        
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Solar Rooftop Potential</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@srtp3 id="rooftoparea" class="form-control" name="rooftoparea"  type="text" required autofocus>                                     
+                                </div><h5>KWh</h5>   
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Cost of Solar Rooftop CAPEX</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@cosrtc3 id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>Rs</h5>   
+                            </div>
+
+                               <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Savings due to CAPEX invsetment in solar plant</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@sciip3 id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>Rs/annum</h5>   
+                            </div>
+
+                               <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Savings due to OPEX in solar plant</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@sdtoip3 id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>Rs/annum</h5>   
+                            </div>
+                           
+                    </div>
+                    </div>
+
+                      <div class="card" >
+                    <div class="card-header"style="background-color: #2e2e38"> <a style=" font-family: Georgia, serif; font-size: 20px; color: white; text-align:center">Additional Offsite solar installation to make Scope 2 Zero</a></div>
+                    <div class="card-body">
+                        
+                           <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Additional Capacity required </label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@acr id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>m2</h5>   
+                            </div>  
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Cost of offsite Solar system</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@cooss id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>m2</h5>   
+                            </div>  
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Savings due to CAPEX invsetment in solar plant</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@sciip4 id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>m2</h5>   
+                            </div> 
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Savings due to OPEX model solar plant</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@sdomsp id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>m2</h5>   
+                            </div>
+                           
+
+                         
+                    </div>
+                    </div>
+                      <div class="card" >
+                    <div class="card-header"style="background-color: #2e2e38"> <a style=" font-family: Georgia, serif; font-size: 20px; color: white; text-align:center">Plantation required to make other emission zero</a></div>
+                    <div class="card-body">
+                        
+                           <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Number of plants </label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@nop id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>m2</h5>   
+                            </div>  
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Area required for Miyawakki forestry</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@arfmf id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>m2</h5>   
+                            </div>  
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Area required for Conventional forestry</label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@afcf id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>m2</h5>   
+                            </div> 
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Cost of plantation </label>
+                                <div class="col-md-6">
+                                    <input @bind-value=@cop id="openspacearea" class="form-control" name="openspacearea" type="text"  required autofocus>    
+                                </div><h5>m2</h5>   
+                            </div>
+                           
+
+                         
+                    </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+   
+</main>
+@code {
+    string srtp; string cosrtc; string sciip; string sdtoip;string srtp2; string cosrtc2;string sciip2; string sdtoip2;string srtp3;string cosrtc3;string sciip3;string sdtoip3; string acr;string cooss; string sciip4;string sdomsp;
+    string nop; string arfmf;string afcf; string cop;
+    protected override void OnInitialized()
+    {
+         srtp =Convert.ToString( Pages.FetchData.SolarRooftoppotential);
+         cosrtc = Convert.ToString( Pages.FetchData.CostofSolarRooftopCAPEX);
+         sciip = Convert.ToString( Pages.FetchData.SavingsduetoCAPEXinvsetmentinsolarplant);
+         sdtoip = Convert.ToString( Pages.FetchData.SavingsduetoOPEXinsolarplant);
+
+         srtp2 = Convert.ToString( Pages.FetchData.SolarRooftoppotential2);
+         cosrtc2 = Convert.ToString( Pages.FetchData.CostofSolarRooftopCAPEX2);
+         sciip2 = Convert.ToString( Pages.FetchData.SavingsduetoCAPEXinvsetmentinsolarplant2);
+         sdtoip2 = Convert.ToString( Pages.FetchData.SavingsduetoOPEXinsolarplant2);
+
+         srtp3 = Convert.ToString( Pages.FetchData.SolarRooftoppotential3);
+         cosrtc3 = Convert.ToString( Pages.FetchData.CostofSolarRooftopCAPEX3);
+         sciip3 = Convert.ToString( Pages.FetchData.SavingsduetoCAPEXinvsetmentinsolarplant3);
+         sdtoip3 = Convert.ToString( Pages.FetchData.SavingsduetoOPEXinsolarplant3);
+
+         acr = Convert.ToString( Pages.FetchData.AdditionalCapacityrequired);
+         cooss = Convert.ToString( Pages.FetchData.CostofoffsiteSolarsystem);
+         sciip4 = Convert.ToString( Pages.FetchData.SavingsduetoCAPEXinvsetmentinsolarplant4);
+         sdomsp = Convert.ToString( Pages.FetchData.SavingsduetoOPEXmodelsolarplant);
+
+         nop =Convert.ToString( Pages.FetchData.Numberofplants);
+         arfmf =Convert.ToString( Pages.FetchData.ArearequiredforMiyawakkiforestry);
+         afcf =Convert.ToString( Pages.FetchData.ArearequiredforConventionalforestry);
+         cop =Convert.ToString( Pages.FetchData.Costofplantation);
+    }
+
+}

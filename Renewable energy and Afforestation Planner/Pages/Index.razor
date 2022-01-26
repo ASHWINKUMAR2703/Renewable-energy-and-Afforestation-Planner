@@ -1,0 +1,26 @@
+﻿@page "/"
+
+
+<br />
+<BSCard CardType="CardType.Card" style="width: 50rem;">
+    <BSCard CardType="CardType.Image" src="solarpannel.jpg" alt="Card image cap"/>
+    <BSCard CardType="CardType.Body">
+        <BSCard CardType="CardType.Title"> The biggest problem statement that the whole of humanity faces in this decade is climate change.
+ While it is important to course correct through various technological and natural interventions keeping economies in mind, the resource or tools are not easily available.</BSCard>
+        <BSCard CardType="CardType.Text">
+           The project aims to aid in the easy of adopting such technological/ natural interventions by acting as simple tool to estimate the deployment of various options such as Solar PV systems, Solar thermal, Biogas systems and afforestation.
+The core idea of the project is to provide a tool that has built in data base consisting of the detailed parameter of the various renewable energy systems and afforestation interventions to accelerate the adoption of these interventions so as to prevent drastic climate change and help organizations/ governments to become carbon neutral.
+The app intends to take basic site parameters such as the area available, location and cost of electricity/ natural gas consumed.
+ Basis the information the application would provide the possible capacity of solar PV system, solar thermal system, biogas plant and no of tree that could be planted through various types of plantation such as Miyawaki or high density forestry.
+ The application also aims to provide a rough cost and saving estimates of the various interventions mentioned above.
+This will enable the user to understand what kinds of interventions are feasible for the implementation and how they could become carbon neutral 
+        </BSCard>
+        <BSButton Color="BSColor.Primary" @onclick="submit">Begin</BSButton>
+    </BSCard>
+</BSCard>
+@code{
+    void submit()
+    {
+        NavigationManager.NavigateTo("/fetchdata");
+    }
+}
